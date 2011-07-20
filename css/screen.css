@@ -6,24 +6,18 @@
 
 /* Global Reset */
 
+
 * {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
-html, body {
-  height: 100%;
+html,body {
+	min-height: 100%;
 }
 
-body {
-  background-color: white;
-  font: 13.34px helvetica, arial, clean, sans-serif;
-  *font-size: small;
-  text-align: center;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-size: 100%;
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
 }
 
 h1 {
@@ -35,16 +29,32 @@ p {
 }
 
 a {
+-webkit-transition-property:color, text; 
+-webkit-transition-duration: 0.3s, 0.3s; 
+-webkit-transition-timing-function: linear, ease-in;
+
+-moz-transition-property:color, text; 
+-moz-transition-duration:0.3s; 
+-moz-transition-timing-function: linear, ease-in; 
+
+-o-transition-property:color, text; 
+-o-transition-duration:0.3s; 
+-o-transition-timing-function: linear, ease-in;
   color: #00a;
 }
 
-a:hover {
-  color: black;
+
+a,ul.externalposts a,ul.externalposts a:visited,.site .footer .contact a {
+
+color:#777;
+text-decoration: none
 }
 
-a:visited {
-  color: #a0a;
+a:hover,ul.externalposts a:hover,.site .footer .contact a:hover {
+color:black;
+text-decoration: none
 }
+
 
 table {
   font-size: inherit;
@@ -74,17 +84,30 @@ ul.posts {
 
 /*****************************************************************************/
 /*
-/* Site
+/* Home
 /*
 /*****************************************************************************/
 
-.site {
-  font-size: 110%;
-  text-align: justify;
-  width: 40em;
-  margin: 3em auto 2em auto;
-  line-height: 1.5em;
+ul.externalposts {
+  list-style-type: none;
+  margin-bottom: 2em;
 }
+
+  ul.externalposts li {
+    line-height: 1.75em;
+  }
+
+  ul.externalposts span {
+    color: #aaa;
+    font-family: Monaco, "Courier New", monospace;
+    font-size: 80%;
+  }
+
+/*****************************************************************************/
+/*
+/* Site
+/*
+/*****************************************************************************/
 
 .title {
   color: #a00;
@@ -92,7 +115,59 @@ ul.posts {
   margin-bottom: 2em;
 }
 
+body {
+	background-color: whitesmoke;
+	font:13.34px helvetica, arial, clean, sans-serif;
+	font-size:small;
+	text-align:center;
+}
+
+.site {
+font-size:110%;
+text-align:justify;
+width:43em;
+line-height:1.5em;
+margin:3em auto 2em auto;
+background: white;
+/* backwards-compatible thin grey border */
+padding: 3em 3em 1.5em 3em;
+border: 1px solid #aaa;
+/* CSS3 shadow */
+box-shadow: 4px 4px 6px #ccc;
+-webkit-box-shadow: 2px 2px 8px #aaa;
+-moz-box-shadow: 2px 2px 8px #aaa;
+}
+
+ img.hello {
+	position: relative;
+	border: solid 5px white;
+	margin: 0 10px 25px; 
+	height: 80px;
+	width: 80px;
+	-moz-box-shadow: 1px 1px 5px #999;
+	-webkit-box-shadow: 1px 1px 5px #999;
+     box-shadow: 1px 1px 5px #999;
+	-webkit-transform: rotate(-1deg);
+	-moz-transform: rotate(-1deg);
+	-webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+	left: -6px;
+	top: -26px;
+}
+
+ img.hello:hover {
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+	position: relative;
+	z-index: 5;
+}
+
   .site .title a {
+	font-size:130%;
     color: #a00;
     text-decoration: none;
   }
