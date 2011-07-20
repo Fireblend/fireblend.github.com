@@ -3,6 +3,12 @@ layout: default
 title: Sergio Morales Esquivel
 ---
 <div id="home">
+  <h1>Blog Posts</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
   <h1>About me</h1>
   
   <table>
@@ -11,18 +17,10 @@ title: Sergio Morales Esquivel
 		<img class="hello" src="images/pic.png" alt="My face" align="left"/>
 	</td>
 	<td>
-		Hello and welcome to my newly created personal blog and website. My name is Sergio Morales, I'm a Costa Rican programmer, a computer science M.Sc. student at <a href="http://www.tec.cr/">ITCR</a> and an embedded software engineer at <a href="http://www.ridgerun.com">Ridgerun</a>.
+		My name is Sergio Morales, I'm a Costa Rican programmer, a computer science M.Sc. student at <a href="http://www.tec.cr/">ITCR</a> and an embedded software engineer at <a href="http://www.ridgerun.com">Ridgerun</a>.
 		<br><br>
 		I'm fascinated with the universe and the science behind it. A science fiction fan, free software enthusiast, photography novice, literature geek, skeptic and humanist. If not coding and listening to music, chances are it's just the music.
 		<br><br></td>
 	</tr>
 </table>
-    
-  <h1>Ramblings</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-
 </div>
