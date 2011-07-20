@@ -117,7 +117,7 @@ ul.externalposts {
 
 body {
 	background-color: whitesmoke;
-	font:13.34px helvetica, arial, clean, sans-serif;
+	font:12.34px helvetica, arial, clean, sans-serif;
 	font-size:small;
 	text-align:center;
 }
@@ -142,23 +142,22 @@ box-shadow: 4px 4px 6px #ccc;
 	position: relative;
 	border: solid 5px white;
 	margin: 0 10px 25px; 
-	height: 80px;
-	width: 80px;
+	height: 60px;
+	width: 60px;
 	-moz-box-shadow: 1px 1px 5px #999;
 	-webkit-box-shadow: 1px 1px 5px #999;
      box-shadow: 1px 1px 5px #999;
-	-webkit-transform: rotate(-1deg);
-	-moz-transform: rotate(-1deg);
+	-webkit-transform: rotate(-3deg);
+	-moz-transform: rotate(-3deg);
 	-webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
-	left: -6px;
-	top: -26px;
+	left: -5px;
 }
 
  img.hello:hover {
-	-webkit-transform: scale(1.1);
-	-moz-transform: scale(1.1);
+	-webkit-transform: scale(1.16);
+	-moz-transform: scale(1.16);
 	-webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;

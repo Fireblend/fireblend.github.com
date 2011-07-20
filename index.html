@@ -3,24 +3,17 @@ layout: default
 title: Sergio Morales Esquivel
 ---
 <div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-  <h1>About me</h1>
-  
-  <table>
-<tr>
-	<td>
+	<h1>recent posts</h1>
+	<ul class="posts">
+		{% for post in site.posts %}
+			<li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+		{% endfor %}
+	</ul>
+	<h1>about me</h1>
 		<img class="hello" src="images/pic.png" alt="My face" align="left"/>
-	</td>
-	<td>
-		My name is Sergio Morales, I'm a Costa Rican programmer, a computer science M.Sc. student at <a href="http://www.tec.cr/">ITCR</a> and an embedded software engineer at <a href="http://www.ridgerun.com">Ridgerun</a>.
-		<br><br>
-		I'm fascinated with the universe and the science behind it. A science fiction fan, free software enthusiast, photography novice, literature geek, skeptic and humanist. If not coding and listening to music, chances are it's just the music.
-		<br><br></td>
-	</tr>
-</table>
+		I'm a 22 year old Costa Rican programmer, a computer science M.Sc. student at <a href="http://www.tec.cr/">ITCR</a> 
+		and a embedded software engineer at <a href="http://www.ridgerun.com">RidgeRun</a>.
+		Sci-fi fan, foss enthusiast, photography novice, avid reader, skeptic and humanist. 
+		If not coding and listening to music, it's just the music.
+	<br>
 </div>
