@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<title>Disregard All Humans!</title>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+<link rel="stylesheet" href="../style.css" type="text/css">
+
+<script type="text/javascript" src="../js/lua-parser.js"		></script>
+<script type="text/javascript" src="../js/gamepad.js"      ></script>
+<script type="text/javascript" src="../js/jquery.js"      ></script>
+<script type="text/javascript" src="../js/jquery.hotkeys.js"      ></script>
+<script type="text/javascript" src="../js/utils.js"			></script>
+<script type="text/javascript" src="../js/utils.webgl.js"		></script>
+<script type="text/javascript" src="../js/love.render.js"		></script>
+<script type="text/javascript" src="../js/main.js"      ></script>
+
+<script type="text/javascript" src="../js/love.audio.js"		></script>
+<script type="text/javascript" src="../js/love.event.js"		></script>
+<script type="text/javascript" src="../js/love.filesystem.js"	></script>
+<script type="text/javascript" src="../js/love.font.js"		></script>
+<script type="text/javascript" src="../js/love.graphics.js"	></script>
+<script type="text/javascript" src="../js/love.image.js"		></script>
+<script type="text/javascript" src="../js/love.joystick.js"	></script>
+<script type="text/javascript" src="../js/love.keyboard.js"	></script>
+<script type="text/javascript" src="../js/love.mouse.js"		></script>
+<script type="text/javascript" src="../js/love.physics.js"	></script>
+<script type="text/javascript" src="../js/love.sound.js"		></script>
+<script type="text/javascript" src="../js/love.thread.js"		></script>
+<script type="text/javascript" src="../js/love.timer.js"		></script>
+
+<script type="text/javascript">gShaderCode_Fragment = LoadShaderCode("../js/fragment.shader");</script>
+<script type="text/javascript">gShaderCode_Vertex   = LoadShaderCode("../js/vertex.shader");</script>
+
+</head>
+<body bgcolor="black" onload="MainOnLoad(['gfx/background.png','gfx/bullet.png','gfx/city.png','gfx/citycreateframes.png','gfx/city-damaged.png', 'gfx/city-destroyed.png', 'gfx/citydestroyframes.png', 'gfx/endSpace.png', 'gfx/foreground.png', 'gfx/ghostframes.png', 'gfx/hsDream.png', 'gfx/humanframes.png', 'gfx/humantest.png', 'gfx/instructionsDream.png', 'gfx/maclframes.png', 'gfx/macrframes.png', 'gfx/PauseScreen.png', 'gfx/selector.png', 'gfx/sky.png', 'gfx/skyFiller.png', 'gfx/thanksScreen1.png', 'gfx/thanksScreen2.png', 'gfx/thanksScreen3.png', 'gfx/thanksScreen4.png', 'gfx/thanksScreen5.png', 'gfx/titleScreen.png', 'gfx/zs1.png', 'gfx/zs2.png'])">
+<font color="white">
+	<center><h3><font color="white">Disregard All Humans - a Ludum Dare 23 entry by Fireblend</h3>
+	<a href="https://github.com/ghoulsblade/love-webplayer"><font color="white">This web version made possible thanks to Love2D-Webplayer</a><br>
+<canvas id="glcanvas">  
+Your browser doesn't appear to support the HTML5 <code>&lt;canvas&gt;</code> element.  
+</canvas>
+<br><a href="http://www.ludumdare.com/compo/ludum-dare-23/?action=preview&uid=10166"><font color="white"><h3>Original Submission Page</h3></a>
+<b><h4>Notice:</h4></b>
+The web version of "Disregard All Humans" lacks all features of the original submission, due to Love2D-Webplayer being <br>
+a work in progress. Namely, score-related features have been removed, and there are also some sound issues. For a more <br>
+complete experience, visit the original submission page and download the game for Windows, Mac or OSX.<br><br>
+
+-Fireblend
+
+</center>
+<div id="output" style="font-family: Courier New,Courier,monospace;"></div>
+</body></html>
