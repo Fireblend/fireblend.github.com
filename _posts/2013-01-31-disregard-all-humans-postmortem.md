@@ -14,7 +14,7 @@ In case you haven't played my game, you can find it right here: [Disregard All H
 
 <strong>Background:</strong>
 
-<img style="float:right" src="http://www.ludumdare.com/compo/wp-content/compo2/thumb/6707c3d9accc425323613aacd7a76cc7.jpg" alt="" width="270" height="183" />
+<img style="float:right; border:5px solid white" src="http://www.ludumdare.com/compo/wp-content/compo2/thumb/6707c3d9accc425323613aacd7a76cc7.jpg" alt="" width="270" height="183" />
 
 So, my name is Sergio, and I'm a 23 years old Costa Rican software engineer getting his CS master degree. Even though I do enjoy them greatly, and I've developed a couple of demos throughout my career, I've never actually embarked on the adventure of creating a game, much less in 48 hours and all by myself! In January I participated in the Global Game Jam, but it was with help from a very skilled team which had let me to play to my strengths and just help out with development. The challenge a LD posed was uncharted territory!
 
@@ -26,7 +26,7 @@ Not satisfied with not having enough experience with 48-hour development cycles,
 
 I figured many people would think of the "oversized character moving around a tiny world represented as a circle" mechanic (and I was right), but I figured the specific "destroying cities, eating humans" gameplay would be unique enough to differentiate my game from others, and this being my first LD, it seemed simple enough to be finished by the time the compo ended. I was clear in that I wanted an intro an ending screen to go with the game, and an arcade-ish feel for the actual gameplay.
 
-<img src="http://www.ludumdare.com/compo/wp-content/compo2/123793/10166-shot1.png" alt="" width="420" height="361" />
+<center><img src="http://www.ludumdare.com/compo/wp-content/compo2/123793/10166-shot1.png" alt="" width="420" height="361" /></center>
 
 <strong>What went right:</strong>
 
@@ -36,7 +36,7 @@ From there, I went at a pretty stable pace; by the end of the first day (7PM-1am
 
 Regarding graphics and music: I'm no artist. Graphics were made with Inkscape which allowed me to do clean vectorized assets that at least looked consistent, while the music and sounds were auto-generated and modified slightly using Autotracker-Bu and sfxr, respectively.
 
-<div><img style="float:left"  wp-image-141428" src="http://www.ludumdare.com/compo/wp-content/uploads/2012/04/rect43072.png" alt="" width="127" height="480" /></div>
+<div><img style="float:left; border:5px solid white"  wp-image-141428" src="http://www.ludumdare.com/compo/wp-content/uploads/2012/04/rect43072.png" alt="" width="127" height="480" /></div>
 <strong>What went wrong:</strong>
 
 I don't think I regret many of my decisions. I should have asked for more feedback from people so that I could realize that bullets being fired from buildings had a sort of "cheap shot" feel to them, and I should have considered shrinking buildings along with the world to make it feel more like the main character was growing, and not that the world was shrinking.
