@@ -16,6 +16,8 @@ For this occassion, I teamed up with 3 other very skilled individuals: Eduardo (
 
 Alright, now we can discuss Twisted Shotgun Panic Cave.
 
+<center><img src="http://globalgamejam.org/sites/default/files/styles/large/public/screenshots/2013/Funciones.png" alt="" width="510" height="250" /></center>
+
 <strong>Concept:</strong>
 
 Twisted Shotgun Panic Cave is a game in the vein of other arcade "single-screen" platformers such as Super Crate Box. Using that same type of gameplay, we added various twists which we considered relevant to the jam's theme (the sound of a beating heart): being a sound, and having someone willing to dabble in music, we inmediately though of incorporating it into the gameplay through 2 means: The music would change according to the state of the game, and most of the screen would be obscured, leaving the player dependant on sound cues to build a mental model of the state of the game by themselves.
@@ -25,6 +27,8 @@ The beating heart also alludes to tension and increased heart rates, a theme pic
 <strong>Development:</strong>
 
 Although I intended to use Actionscript for my jam entry, Eduardo was quick to suggest Game Maker, and since I had never used it before (plus the fact that it would be easier to teach than Actionscript), we decided to go with that. I have my reservations about using proprietary technology in jam projects, since the source code to these projects is usually posted online, and it's somewhat contradictory that not everyone will be able to compile it, but at the same time many solutions such as Unity and Game Maker are pretty much unmatched in terms of ease of use and have no viable open source alternatives, so I really have no comeback for this scenario :P
+
+<img style="float:left; border:12px solid white" src="http://globalgamejam.org/sites/default/files/styles/large/public/P1271207.JPG" width="400" class="alignleft" />
 
 Game Maker allowed us to make some considerable progress in the first few hours of the jam. By midnight the core of the game was done: a Super Crate Box clone with limited vision (provided by some great light-related code Eduardo kept handy).
 
@@ -40,6 +44,8 @@ Overall, development was pretty smooth. Game Maker is a surprisingly versatile t
 
 As I said, we hoped that by having both a graphic designer and a musician in our team would allow us to achieve a high level of polish for our game. Needless to say, we undoubtedly did, with the resulting game having both superb audio and a unique and enjoyable visual identity. 
 
+<img style="float:right; border:12px solid white" src="http://globalgamejam.org/sites/default/files/styles/large/public/screenshots/2013/screen_3_0.png" width="300" class="alignleft" />
+
 Sound was pretty integral to the gameplay, as we relied on it to communicate both a sense of constant urgency as well as a good portion of the game state to the player. Markus more than came through with this task, composing over 5 songs and providing an impressive amount of audio effects that were both incredibly good (the music is catchy and there were more than a couple of requests for an extended version of the game's "theme") and surprisingly coherent with the rest of the game.
 
 Visually, Gustavo made an impressive job out of creating a visual identity for the game. We were impressed more than once by his attention to detail: when we expected a simple 3-tile platform, he provided custom tiles for unique, detailed platforms. When we expected enemies that would be color variations from one another, he provided brilliant interpretations of the behaviors we had added for each enemy, leading to a visual identity that really gave life to the game. Even the quirky game intro that is shown at the start of the game matches the style brilliantly.
@@ -47,6 +53,8 @@ Visually, Gustavo made an impressive job out of creating a visual identity for t
 <strong>Conclusions:</strong>
 
 Even though the game and the jam itself were a success, there are always observations to be made in regards to improvements for the next jam. I think the game could have been more inventinve in regards with how the theme was interpreted, maybe by aiming for more ambitious mechanics. As it stands, the scope was pretty relaxed and allowed us some good sleep hours, but I don't think the extra twists were enough to completely separate ourselves from the obvious Super Crate Box comparisons.
+
+<img style="float:left; border:12px solid white" src="http://transformative-step.gesi.org/static/css/images/android.png" width="90" class="alignleft" />
 
 It had a pretty good reception though, mostly due to the music and the way it was incorporated into the gameplay, which I think taught us all a pretty good lesson about the importance of sound in making a game effective and supporting its gameplay.
 
