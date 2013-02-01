@@ -44,7 +44,7 @@ Overall, development was pretty smooth. Game Maker is a surprisingly versatile t
 
 As I said, we hoped that by having both a graphic designer and a musician in our team would allow us to achieve a high level of polish for our game. Needless to say, we undoubtedly did, with the resulting game having both superb audio and a unique and enjoyable visual identity. 
 
-<img style="float:right; border:12px solid white" src="http://imgur.com/WhM9QaL" width="200" class="alignleft" />
+<img style="float:right; border:12px solid white" src="http://imgur.com/WhM9QaL.jpg" width="200" class="alignleft" />
 
 Sound was pretty integral to the gameplay, as we relied on it to communicate both a sense of constant urgency as well as a good portion of the game state to the player. Markus more than came through with this task, composing over 5 songs and providing an impressive amount of audio effects that were both incredibly good (the music is catchy and there were more than a couple of requests for an extended version of the game's "theme") and surprisingly coherent with the rest of the game.
 
