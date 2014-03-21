@@ -6,7 +6,7 @@ title: "Ludum Dare: El Jam Perfecto"
 {{ page.title }}
 ================
 
-<i>Side-note</i>: Acabo de renovar mi blog, y junto con eso compré un dominio. Quería fireblend.com desde hace un tiempo, y todas las ocasiones en las que había intentado comprarlo me había dado cuenta de que alguien más lo tenía (probablemente con intenciones de revenderlo a precio inflado). Pero bueno, intenté nuevamente hace unos días y su antiguo dueño lo había dejado expirar, así que no dudé en comprarlo. 
+<i>Side-note</i>: Acabo de renovar mi blog, y junto a eso compré un dominio. Quería fireblend.com desde hace un tiempo, y todas las ocasiones en las que había intentado comprarlo me había dado cuenta de que alguien más lo tenía (probablemente con intenciones de revenderlo a precio inflado). Pero bueno, intenté nuevamente hace unos días y su antiguo dueño lo había dejado expirar, así que no dudé en comprarlo. 
 
 Para empezar esta nueva versión de mi sitio, voy a escribir un poco acerca de [Ludum Dare](http://www.ludumdare.com/compo/) y porqué es en mi opinión uno de los mejores sino el mejor jam en el que un desarrollador con aspiraciones a crear juegos puede participar. Lo tenía pendiente; a principios de año participé en el [Global Game Jam](http://globalgamejam.org/) y a más de uno de quienes participaron conmigo los intente convencer acerca de las maravillas de Ludum Dare y porqué, en mi opinion, era un evento superior.
 
@@ -16,7 +16,9 @@ El primer Ludum Dare se realizó en el 2002 y hasta la fecha han habido 28 Ludum
 
 <strong>Una audiencia gratis</strong>
 
-Como mencioné, despues de finalizarse el proceso de desarrollo de los juegos, inicia un periodo de un par de semanas para calificarlos. Es fundamental entender que los únicos que pueden calificar y comentar acerca de los juegos son <b>los desarrolladores mismos</b>, y para motivarlos a hacerlo entra en acción el brillante sistema de visibilización y calificación de Ludum Dare: <i>Mientras más juegos califiques como desarrollador, más visibilidad vas a tener dentro de la lista de juegos que otros navegan para calificar, y mientras más te califiquen, más tienes que calificar de vuelta para seguir arriba en dicha lista.</i>
+Como mencioné, despues de finalizarse el proceso de desarrollo de los juegos, inicia un periodo de un par de semanas para calificarlos. Es fundamental entender que los únicos que pueden calificar y comentar acerca de los juegos son <b>los desarrolladores mismos</b>, y para motivarlos a hacerlo entra en acción el brillante sistema de visibilización y calificación de Ludum Dare: 
+
+<i>Mientras más juegos califiques como desarrollador, más visibilidad vas a tener dentro de la lista de juegos que otros navegan para calificar, y mientras más te califiquen, más tienes que calificar de vuelta para seguir arriba en dicha lista.</i>
 
 Esto no es nada menos que brillante. Si quieres que te califiquen, tienes que calificar. Si dejas comentarios, estás dejando un link a tu juego, lo que hace que sea más probable que los autores de los juegos que califiques te califiquen (es cortesía, después de todo), y los juegos que son calificados "demasiado" eventualmente pierden visibilidad para darle paso a juegos que no han sido tan comentados o calificados. Para el desarrollador que busca una audiencia, este es un envío divino; una audiencia gratis, dispuesta a dejar buenos comentarios. Vale resaltar acá el contraste que existe entre este y el triste destino de proyectos en otros jams, en su mayoría olvidados después del fin de semana en el que fueron desarrollados.
 
