@@ -77,7 +77,7 @@ ul.posts {
   }
 
   ul.posts span {
-    color: #aaa;
+    color: #a00;
     font-family: Monaco, "Courier New", monospace;
     font-size: 80%;
   }
@@ -98,7 +98,7 @@ ul.externalposts {
   }
 
   ul.externalposts span {
-    color: #aaa;
+    color: #a00;
     font-family: Monaco, "Courier New", monospace;
     font-size: 80%;
   }
