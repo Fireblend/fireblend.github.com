@@ -111,7 +111,6 @@ ul.externalposts {
 
 .title {
   color: #a00;
-  font-weight: bold;
   margin-bottom: 2em;
 }
 
@@ -177,7 +176,6 @@ box-shadow: 4px 4px 6px #ccc;
 
   .site .title a.extra {
     color: #aaa;
-    text-decoration: none;
     margin-left: 1em;
   }
 
