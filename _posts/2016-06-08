@@ -1,0 +1,29 @@
+---
+layout: post
+title: "Sushi Go! Scorekeeper Mini Dev-Diary"
+---
+
+{{ page.title }}
+================
+
+I've been getting into board games lately, which is a hobby I've been meaning to explore for years. I'd been picking up games that seemed fun here and there for the past couple of years, but actually getting them to the table with friends and family didn't occur too often, detracting me from spending much money into the hobby. A few months ago I decided I'd try to actually make an effort and get some people into playing with me though, and since then not one week has gone by without a board game session, be it with my family, friends or even coworkers.
+
+One of the games I found was a great introduction to the genre is [Sushi Go! by Gameswright](https://boardgamegeek.com/boardgame/133473/sushi-go). It's a very fun, nice-looking card drafting game, ridiculously simple to learn, and which can be played in 15 minutes in a very reduced space - which turned out to be great for lunchbreaks at the office. It didn't take much time before lunchtime became "Sushi Go! time" at work, and since then I've expanded my "lunchbreak" games collection with other quick-play games like [Coup](https://boardgamegeek.com/boardgame/131357/coup) and [Codenames](https://boardgamegeek.com/boardgame/178900/codenames).
+
+<center><img src="http://i.imgur.com/y0ixTsP.png"/></center>
+
+Back to Sushi Go! though, the game has a small weakness, and that is that since it's played over 3 rounds and players win by scoring the highest amount of points based on cards they played during that round, having pen and paper (or a cellphone with a text editing app) handy is a must. In addition to that, despite scoring being relatively easy, some cards have more complex rules than others; and even after a couple rounds the ocassional visit to the rulebook was necessary. Seeing how popular it was becoming amongst my friends, and disappointed that the best scorekeeping app for the game on Google play was nothing more than a glorified text editor, I decided to develop my own, and after a couple days [it was done and available on Google Play](https://play.google.com/store/apps/details?id=com.fireblend.sushigoscore) for anyone to download:
+
+I'm pretty happy with how it turned out considering its short development time. The Material components (which make heavy use of the Android elevation attribute) make it look good without the need for much effort, and the ViewPager which holds scoring cards for each player make it very easy for users to add scores without much hassle in-between rounds. The rest of the UI is pretty simple and intuitive, and I was even able to squeeze in some extra features like a final scores screen and being able to revisit all rounds' results after a game.
+
+<center><img src="http://i.imgur.com/r7s1Fgw.png"/></center>
+
+As soon as I published it, I made [a post on reddit's board game subforum](https://www.reddit.com/r/boardgames/comments/4fwban/created_a_sushi_go_scorekeeping_app_for_android/) to advertise it, and it was pretty well received. The app's been met with mostly positive reviews, and shortly after that it overtook the only other app available for scoring, with its install base growing everyday. I've released a couple of updates thus far, mostly requests from users. Just a couple days ago I implemented support for the "Soy Sauce" expansion, which can be bought to complement the game.
+
+<center><img src="http://i.imgur.com/78SJdWG.png"/></center>
+
+Anyway, I wanted to share this story as a way of showing that even small apps that fill even smaller gaps in the market can be well received and surprise you with their popularity and growth. I mostly did it for fun, but knowing you've made something that a not-insignificant number of people appreciate is quite the reward!
+
+<center><img src="http://i.imgur.com/LC23Ehn.png"/></center>
+
+Cheers!
