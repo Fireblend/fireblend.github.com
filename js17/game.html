@@ -8,14 +8,45 @@
 body {
   background: black;
   text-align: center;
+  color: white;
 }
 canvas {
   border: 1px solid white;
+}
+a {
+  color:#a4c2f4;
 }
 </style>
 </head>
 <body>
 <canvas width="600" height="600"></canvas>
+<div style="text-align: left">
+<h2>Unnamed 17kb challenge game</h2>
+This is a simple Javascript game developed using the <a href="https://straker.github.io/kontra/">Kontra micro-library</a>, intended to be under 17kb when zipped.
+
+The game is a tribute to asymmetric 2-player games, such as <a href="http://www.spyparty.com/">Spy Party</a>.
+
+<h2>Instructions</h2>
+1 player plays as the <b>assassin</b> (keyboard) and another plays as the <b>sheriff</b> (mouse).<br><br>
+
+The assassin's goal is to kill 3 villagers without being detected. In order to kill a villager, they must have talked to them for a total of 3 consecutive seconds (conversation will occur automatically when they are close to a villager), and then press the <i>space bar</i> key.
+<br>Once killed, the screen will go dark for a short amount of time to allow them to escape the scene of the crime.
+
+<br><br>
+
+The sheriff's goal is to identify the assassin, and shoot them before they can accomplish their goal.
+
+This game is a work in progress.
+
+<h2>To-do</h2>
+  <ul>
+<li>Menu screen</li>
+<li>Ending screen(s)</li>
+<li>Graphics</li>
+<li>Sounds</li>
+<li>Better villager behavior</li>
+</ul>
+</div>
 <script src="kontra.js"></script >
 <script>
 kontra.init();
