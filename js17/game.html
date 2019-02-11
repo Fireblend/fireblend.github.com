@@ -29,18 +29,38 @@ The game is a tribute to asymmetric 2-player games, such as <a href="http://www.
 <h2>Instructions</h2>
 1 player plays as the <b>assassin</b> (keyboard) and another plays as the <b>sheriff</b> (mouse).<br><br>
 
-The assassin's goal is to kill 3 villagers without being detected. In order to kill a villager, they must have talked to them for a total of 3 consecutive seconds (conversation will occur automatically when they are close to a villager), and then press the <i>space bar</i> key.
-<br>Once killed, the screen will go dark for a short amount of time to allow them to escape the scene of the crime.
+The assassin's goal is to kill 3 villagers. To kill a villager, talk to them for 3 consecutive seconds (conversation happens automatically close to a villager), and then press the <i>space bar</i>.
+<br>The screen will go dark after each kill to allow the assassin to escape the scene of the crime.
 
 <br><br>
 
 The sheriff's goal is to identify the assassin, and shoot them before they can accomplish their goal.
 
-This game is a work in progress.
-</div>
 <script src="kontra.js"></script >
 <script>
 kontra.init();
+
+let v1 = new Image();
+let v2 = new Image();
+let v3 = new Image();
+let v4 = new Image();
+v1.src = 'v1.png';
+v2.src = 'v2.png';
+v3.src = 'v3.png';
+v4.src = 'v4.png';
+
+let t1 = new Image();
+let t2 = new Image();
+let t3 = new Image();
+t1.src = 't1.png';
+t2.src = 't2.png';
+t3.src = 't3.png';
+
+let aim = new Image();
+aim.src = 'aim.png';
+
+s1 = new Audio('s1.wav');
+
 
 let villagers = [];
 let speechBubbles = [];
@@ -48,11 +68,42 @@ let speechBubbles = [];
 let blackFrames = -1;
 let gameOver =false;
 let deaths = 0;
-var assassin = kontra.sprite({
-  id:20,
+
+var assassinIndicator = kontra.sprite({
+
   x: 100,
   y: 80,
-  color_list: ['#fcad25', '#3c78d8', '#d170e5', '#f42e77'],
+  color: '#ffffff',
+  active: true,
+  startSeq: 60*5,
+  active:true,
+
+  render(){
+    if(this.active){
+      this.startSeq = this.startSeq -1
+      if(this.startSeq == 0){
+        this.active = false
+      }
+      this.context.strokeStyle = 'white';
+
+      this.context.beginPath();
+      this.context.moveTo(assassin.x+assassin.width/2, assassin.y+assassin.height/2 - 15);
+      this.context.lineTo(assassin.x+assassin.width/2+10, assassin.y - 15);
+      this.context.lineTo(assassin.x+assassin.width/2-10, assassin.y - 15);
+
+      writeToScreenFull("Assassin", assassin.x-15, assassin.y-24, 11)
+
+      this.context.closePath();
+      this.context.stroke();
+    }
+  }
+})
+
+var assassin = kontra.sprite({
+  id:28,
+  x: 100,
+  y: 80,
+  color_list: [v1, v2, v3, v4],
   color: '#bad455',//this.color_list[Math.floor(Math.random()*this.color_list.length)],
   width: 20,
   height: 20,
@@ -62,7 +113,7 @@ var assassin = kontra.sprite({
   who: null,
 
   init: function(){
-    this.color = this.color_list[Math.floor(Math.random()*this.color_list.length)];
+    this.image = this.color_list[Math.floor(Math.random()*this.color_list.length)];
     this.x = 300
     this.y = 300
   },
@@ -127,6 +178,7 @@ var assassin = kontra.sprite({
               blackFrames = 120
               deaths = deaths+1
               this.who = null
+              s1.play()
           }
       }
 
@@ -162,23 +214,16 @@ var assassin = kontra.sprite({
   }
 });
 
-var target = kontra.sprite({
-  x: 100,
-  y: 80,
-  color: '#bad455',//this.color_list[Math.floor(Math.random()*this.color_list.length)],
-  width: 10,
-  height: 10,
+var target2 = kontra.sprite({
+  color: "#ffffff",//this.color_list[Math.floor(Math.random()*this.color_list.length)],
+  width: 1,
+  height: 1,
   shot: false,
 
-  init: function(){
-    this.x = 300
-    this.y = 300
-  },
-
   update: function() {
-    if(!this.shot){
-      this.x = kontra.pointer.x-this.width/2
-      this.y = kontra.pointer.y-this.width/2
+    if(!target.shot){
+      this.x = kontra.pointer.x
+      this.y = kontra.pointer.y
     }
   },
 
@@ -189,19 +234,36 @@ var target = kontra.sprite({
       assassin.y+assassin.height > kontra.pointer.y){
         assassin.color = "#ff0000"
         assassin.dead = true
+
     }
-    this.shot = true
+    target.shot = true
+    s1.play()
   }
 });
 
-kontra.pointer.track(target);
+var target = kontra.sprite({
+  color: "#ffffff",//this.color_list[Math.floor(Math.random()*this.color_list.length)],
+  image: aim,
+  width: 80,
+  height: 80,
+  shot: false,
+
+  update: function() {
+    if(!this.shot){
+      this.x = kontra.pointer.x-40
+      this.y = kontra.pointer.y-40
+    }
+  }
+});
+
+kontra.pointer.track(target2);
 
 function createVillager(vid) {
   let villager = kontra.sprite({
     id: vid,
     x: 100,
     y: 80,
-    color_list: ['#fcad25', '#3c78d8', '#d170e5', '#f42e77'],
+    color_list: [v1, v2, v3, v4],
     color: '#bad455',//this.color_list[Math.floor(Math.random()*this.color_list.length)],
     width: 20,
     height: 20,
@@ -211,7 +273,7 @@ function createVillager(vid) {
     running: false,
 
     init: function(){
-      this.color = this.color_list[Math.floor(Math.random()*this.color_list.length)];
+      this.image = this.color_list[Math.floor(Math.random()*this.color_list.length)];
       this.x = Math.floor(Math.random()*600)
       this.y = Math.floor(Math.random()*600)
     },
@@ -309,12 +371,33 @@ function createSpeechBubble(villager) {
   let speechBubble = kontra.sprite({
     x: 100,
     y: 80,
-    color: '#ffffff',//this.color_list[Math.floor(Math.random()*this.color_list.length)],
+    image: t1,
     width: 40,
     height: 20,
     active: false,
+    frames: 0,
 
     update(){
+      if(this.active){
+        if(this.frames > 60){
+          this.frames = 0
+        }else{
+          this.frames++
+        }
+      } else {
+        this.frames = 0
+      }
+
+      if(this.frames > 40){
+        this.image = t3
+      }
+      else if(this.frames > 20){
+        this.image = t2
+      }
+      else{
+        this.image = t1
+      }
+
       this.x = villager.x;
       this.y = villager.y-22;
     },
@@ -329,7 +412,7 @@ function createSpeechBubble(villager) {
   speechBubbles.push(speechBubble);
 }
 
-for (var i = 0; i < 20; i++) {
+for (var i = 0; i < 28; i++) {
   createVillager(i);
   createSpeechBubble(villagers[i])
 }
@@ -337,19 +420,32 @@ assassin.init();
 createSpeechBubble(assassin)
 
 function writeToScreen(text){
-    kontra.context.save()
-    kontra.context.strokeStyle = "#ffffff"
-    kontra.context.font = 25 + 'px Courier New'
-    kontra.context.textBaseline = 'middle'
-    kontra.context.fillStyle = "#ffffff"
-    kontra.context.fillText(text, 50, 50)
-    kontra.context.restore()
+  writeToScreenFull(text, 50, 50, 25);
+}
+
+function writeToScreenFull(text, x, y, size){
+  kontra.context.save()
+  kontra.context.strokeStyle = "#ffffff"
+  kontra.context.font = size + 'px Courier New'
+  kontra.context.textBaseline = 'middle'
+  kontra.context.fillStyle = "#ffffff"
+  kontra.context.fillText(text, x, y)
+  kontra.context.restore()
+}
+
+function fillScreen(color){
+
+  kontra.context.beginPath();
+  kontra.context.rect(0, 0, 600, 600);
+  kontra.context.fillStyle = color;
+  kontra.context.fill();
 }
 
 var loop = kontra.gameLoop({  // create the main game loop
   update() {        // update the game state
     assassin.update();
     target.update();
+    target2.update();
     villagers.map(villager => {
       if(!villager.dead){
         villager.update();
@@ -361,6 +457,7 @@ var loop = kontra.gameLoop({  // create the main game loop
     })
   },
   render() {        // render the game state
+    fillScreen("#12d141")
     if(blackFrames <= 0){
       villagers.map(villager => {
         if(!villager.dead){
@@ -369,8 +466,11 @@ var loop = kontra.gameLoop({  // create the main game loop
       speechBubbles.map(bubble => bubble.render2());
       assassin.render();
       target.render();
+      target2.render();
+      assassinIndicator.render();
     } else {
       blackFrames = blackFrames-1
+      fillScreen("#000000")
       writeToScreen("The assassin has struck!")
     }
     if(deaths == 3){
@@ -384,6 +484,7 @@ var loop = kontra.gameLoop({  // create the main game loop
       }
     }
   }
+
 });
 
 loop.start();    // start the game
