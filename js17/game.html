@@ -19,7 +19,7 @@ a {
 </style>
 </head>
 <body>
-<canvas width="600" height="600"></canvas>
+<canvas width="500" height="500"></canvas>
 <div style="text-align: left">
 <h2>Unnamed 17kb challenge game</h2>
 This is a simple Javascript game developed using the <a href="https://straker.github.io/kontra/">Kontra micro-library</a>, intended to be under 17kb when zipped.
@@ -27,14 +27,15 @@ This is a simple Javascript game developed using the <a href="https://straker.gi
 The game is a tribute to asymmetric 2-player games, such as <a href="http://www.spyparty.com/">Spy Party</a>.
 
 <h2>Instructions</h2>
-1 player plays as the <b>assassin</b> (keyboard) and another plays as the <b>sheriff</b> (mouse).<br><br>
+1 player plays as the <b>thief</b> (keyboard) and another plays as the <b>sheriff</b> (mouse).<br><br>
 
-The assassin's goal is to kill 3 villagers. To kill a villager, talk to them for 3 consecutive seconds (conversation happens automatically close to a villager), and then press the <i>space bar</i>.
-<br>The screen will go dark after each kill to allow the assassin to escape the scene of the crime.
+The <b>thief's goal is to pickpocket 3 villagers</b>. To pickpocket a villager, talk to them for 3 consecutive seconds (conversation happens automatically when close to a villager), and then press <i>space</i>, <i>Q</i> or <i>E</i>.
+<br><b>Hint</b>: You can use the speech bubble animation to keep track of time: everytime it shows 3 dots, a second has elapsed!
+<br>The screen will go dark after each successful robbery to allow the thief to escape the scene of the crime, but the location will be visible!
 
 <br><br>
 
-The sheriff's goal is to identify the assassin, and shoot them before they can accomplish their goal.
+The <b>sheriff's goal is to identify the thief, and shoot them before they can accomplish their goal!</b>
 
 <script src="kontra.js"></script >
 <script>
@@ -56,27 +57,30 @@ t1.src = 't1.png';
 t2.src = 't2.png';
 t3.src = 't3.png';
 
+let ahh = new Image();
+ahh.src = 'ahh.png';
+
 let aim = new Image();
 aim.src = 'aim.png';
 
 s1 = new Audio('s1.wav');
 
-
+let villagersNum = 20;
 let villagers = [];
 let speechBubbles = [];
 
 let blackFrames = -1;
 let gameOver =false;
 let deaths = 0;
+let starting = 0
 
-var assassinIndicator = kontra.sprite({
+var thiefIndicator = kontra.sprite({
 
   x: 100,
   y: 80,
   color: '#ffffff',
-  active: true,
-  startSeq: 60*5,
-  active:true,
+  active: false,
+  startSeq: 0,
 
   render(){
     if(this.active){
@@ -87,11 +91,11 @@ var assassinIndicator = kontra.sprite({
       this.context.strokeStyle = 'white';
 
       this.context.beginPath();
-      this.context.moveTo(assassin.x+assassin.width/2, assassin.y+assassin.height/2 - 15);
-      this.context.lineTo(assassin.x+assassin.width/2+10, assassin.y - 15);
-      this.context.lineTo(assassin.x+assassin.width/2-10, assassin.y - 15);
+      this.context.moveTo(thief.x+thief.width/2, thief.y+thief.height/2 - 15);
+      this.context.lineTo(thief.x+thief.width/2+10, thief.y - 15);
+      this.context.lineTo(thief.x+thief.width/2-10, thief.y - 15);
 
-      writeToScreenFull("Assassin", assassin.x-15, assassin.y-24, 11)
+      writeToScreenFull("Thief", thief.x-5, thief.y-24, 11)
 
       this.context.closePath();
       this.context.stroke();
@@ -99,8 +103,8 @@ var assassinIndicator = kontra.sprite({
   }
 })
 
-var assassin = kontra.sprite({
-  id:28,
+var thief = kontra.sprite({
+  id:villagersNum,
   x: 100,
   y: 80,
   color_list: [v1, v2, v3, v4],
@@ -114,30 +118,22 @@ var assassin = kontra.sprite({
 
   init: function(){
     this.image = this.color_list[Math.floor(Math.random()*this.color_list.length)];
-    this.x = 300
-    this.y = 300
+    this.x = 250
+    this.y = 250
+    this.running = false
   },
 
   update(){
+    if(gameOver && kontra.keys.pressed('x')){
+      startGame()
+      starting = 180
+    }
     if(this.dead){
       this.dx = 0;
       this.dy = 0;
     }
-
-    else if(target.shot && !this.running && !this.dead){
-      this.running = true
-      if(kontra.pointer.x <= this.x){
-          this.dx = 2
-      }
-      else{
-          this.dx = -2
-      }
-      if(kontra.pointer.y <= this.y){
-          this.dy = 2
-      }
-      else{
-          this.dy = -2
-      }
+    else if((target.shot || deaths == 3) && !this.running && !this.dead){
+      return
     }
     else if(!this.running && !this.dead){
       if (this.x > kontra.canvas.width-this.width/2) {
@@ -153,29 +149,31 @@ var assassin = kontra.sprite({
         this.y = -this.width/2;
       }
 
-      if (kontra.keys.pressed('up')) {
+      if (!gameOver && (kontra.keys.pressed('up') || kontra.keys.pressed('w'))) {
         this.dy = -1;
       }
-      else if  (kontra.keys.pressed('down')){
+      else if  (!gameOver && (kontra.keys.pressed('down') || kontra.keys.pressed('s'))){
         this.dy = 1;
       } else {
         this.dy = 0;
       }
 
-      if (kontra.keys.pressed('left')) {
+      if (!gameOver && (kontra.keys.pressed('left') || kontra.keys.pressed('a'))) {
         this.dx = -1;
       }
-      else if  (kontra.keys.pressed('right')){
+      else if  (!gameOver && (kontra.keys.pressed('right') || kontra.keys.pressed('d'))){
         this.dx = 1;
       } else {
         this.dx = 0;
       }
 
-      if (kontra.keys.pressed('space')){
+      if (!gameOver && (kontra.keys.pressed('space') || kontra.keys.pressed('q'))){
           delta = (new Date()).getTime() - this.talking
           if(speechBubbles[this.id].active && delta > 3000 && this.who != null){
-              villagers[this.who].dead = true
-              blackFrames = 120
+              villagers[this.who].robbed = true
+              death_mark.x = villagers[this.who].x
+              death_mark.y = villagers[this.who].y
+              blackFrames = 60
               deaths = deaths+1
               this.who = null
               s1.play()
@@ -214,6 +212,12 @@ var assassin = kontra.sprite({
   }
 });
 
+var death_mark = kontra.sprite({
+  image: ahh,//this.color_list[Math.floor(Math.random()*this.color_list.length)],
+  width: 40,
+  height: 20
+});
+
 var target2 = kontra.sprite({
   color: "#ffffff",//this.color_list[Math.floor(Math.random()*this.color_list.length)],
   width: 1,
@@ -228,12 +232,15 @@ var target2 = kontra.sprite({
   },
 
   onDown: function() {
-    if(assassin.x < kontra.pointer.x &&
-      assassin.x+assassin.width >kontra.pointer.x &&
-      assassin.y < kontra.pointer.y &&
-      assassin.y+assassin.height > kontra.pointer.y){
-        assassin.color = "#ff0000"
-        assassin.dead = true
+    if(gameOver){
+      return
+    }
+    if(thief.x < kontra.pointer.x &&
+      thief.x+thief.width >kontra.pointer.x &&
+      thief.y < kontra.pointer.y &&
+      thief.y+thief.height > kontra.pointer.y){
+        thief.color = "#ff0000"
+        thief.dead = true
 
     }
     target.shot = true
@@ -271,18 +278,19 @@ function createVillager(vid) {
     frames: -1,
     moves: [-1, 0, 0, 1],
     running: false,
+    robbed: false,
 
     init: function(){
       this.image = this.color_list[Math.floor(Math.random()*this.color_list.length)];
-      this.x = Math.floor(Math.random()*600)
-      this.y = Math.floor(Math.random()*600)
+      this.x = Math.floor(Math.random()*500)
+      this.y = Math.floor(Math.random()*500)
     },
 
     update(){
       // wrap the sprites position when it reaches
       // the edge of the screen
 
-      if(target.shot && !this.running){
+      if((target.shot || deaths == 3 || this.robbed) && !this.running){
         speechBubbles[vid].active = false
         this.running = true
         if(kontra.pointer.x <= this.x){
@@ -312,13 +320,13 @@ function createVillager(vid) {
         if (this.y > kontra.canvas.height-this.width/2) {
           this.y = -this.width/2;
         }
-        if(this.frames == -1){
-          this.rerollMove()
-        }
         this.frames = this.frames-1;
         if(this.frames <= 0){
           this.rerollMove()
         }
+      }
+      else if(this.running && (this.x < -30 || this.x > 530 || this.y < -30 || this.y > 530)){
+        this.dead = true
       }
       this.advance()
     },
@@ -340,27 +348,31 @@ function createVillager(vid) {
       center_x2 = villager.x-villager.width/2
       center_y2 = villager.y-villager.width/2
 
-      if(Math.abs(center_x-center_x2) < 30 && Math.abs(center_y-center_y2) < 30 ){
-        if(speechBubbles[this.id].active == false){
+      lim = 30
+
+      if(Math.abs(center_x-center_x2) < lim && Math.abs(center_y-center_y2) < lim ){
+        if(!speechBubbles[this.id].active){
+          this.frames = 0
+          this.moves = [-1,0,0,0,0,1]
+          speechBubbles[this.id].active=true
         }
-        speechBubbles[this.id].active=true
-        this.moves = [-1, 0, 0, 0, 0, 1]
         return true
       }
+      return false
     },
 
     isTalking: function() {
+      hide = true
       for (villager in villagers) {
-        hide = true
         if(this.checkSpeech(villagers[villager])){
+          hide = false
           break
         }
-        if(hide == true){
-          speechBubbles[this.id].active=false
-          this.moves = [-1, 0, 0, 1]
-        }
       }
-      this.checkSpeech(assassin)
+      if(hide == true && !this.checkSpeech(thief)){
+        speechBubbles[this.id].active=false
+        this.moves = [-1, 0, 0, 1]
+      }
     }
   });
   villager.init();
@@ -403,7 +415,7 @@ function createSpeechBubble(villager) {
     },
 
     render2(){
-      if(this.active){
+      if(this.active && !target.shot){
         this.render()
       }
     }
@@ -412,15 +424,9 @@ function createSpeechBubble(villager) {
   speechBubbles.push(speechBubble);
 }
 
-for (var i = 0; i < 28; i++) {
-  createVillager(i);
-  createSpeechBubble(villagers[i])
-}
-assassin.init();
-createSpeechBubble(assassin)
 
 function writeToScreen(text){
-  writeToScreenFull(text, 50, 50, 25);
+  writeToScreenFull(text, 20, 50, 25);
 }
 
 function writeToScreenFull(text, x, y, size){
@@ -433,17 +439,37 @@ function writeToScreenFull(text, x, y, size){
   kontra.context.restore()
 }
 
+startGame()
+gameOver = true
+function startGame(){
+  villagersNum = 20;
+  villagers = [];
+  speechBubbles = [];
+  blackFrames = -1;
+  gameOver =false;
+  deaths = 0;
+  starting = false
+  target.shot = false
+  for (var i = 0; i < villagersNum; i++) {
+    createVillager(i);
+    createSpeechBubble(villagers[i])
+  }
+  thief.init();
+  createSpeechBubble(thief)
+
+}
+
 function fillScreen(color){
 
   kontra.context.beginPath();
-  kontra.context.rect(0, 0, 600, 600);
+  kontra.context.rect(0, 0, 500, 500);
   kontra.context.fillStyle = color;
   kontra.context.fill();
 }
 
 var loop = kontra.gameLoop({  // create the main game loop
   update() {        // update the game state
-    assassin.update();
+    thief.update();
     target.update();
     target2.update();
     villagers.map(villager => {
@@ -464,31 +490,50 @@ var loop = kontra.gameLoop({  // create the main game loop
           villager.render()
         }});
       speechBubbles.map(bubble => bubble.render2());
-      assassin.render();
+      thief.render();
       target.render();
       target2.render();
-      assassinIndicator.render();
-    } else {
+      thiefIndicator.render();
+    } else  {
       blackFrames = blackFrames-1
       fillScreen("#000000")
-      writeToScreen("The assassin has struck!")
+      writeToScreen("The thief has struck!")
+      death_mark.render();
     }
     if(deaths == 3){
-      writeToScreen("The assassin has won!")
+      writeToScreenFull("The thief has won!", 50, 77, 25);
+      gameOver = true
     }
     if(target.shot){
-      if(assassin.dead){
-        writeToScreen("The assassin has been killed!")
+      if(thief.dead){
+        writeToScreen("The thief has been killed!")
+        gameOver = true
       } else {
-        writeToScreen("The assassin has escaped!")
+        writeToScreen("The thief has escaped!")
+        gameOver = true
+      }
+    }
+    if(gameOver){
+      writeToScreenFull("Press X", 180, 250,30)
+      writeToScreenFull("to Play!", 180, 280,30)
+    }
+    if(starting > 0){
+      fillScreen("#000000")
+      writeToScreenFull("Sheriff: Close your eyes", 150, 220,15)
+      writeToScreenFull("  and count 5 seconds!  ", 150, 250,15)
+
+      writeToScreenFull("     Thief: Run!     ", 150, 300,15)
+      starting = starting-1
+      if(starting == 0){
+        thiefIndicator.startSeq = 60*1.5
+        thiefIndicator.active = true
       }
     }
   }
 
 });
 
-loop.start();    // start the game
-//# sourceURL=userscript.js
+loop.start();
 </script>
 </body>
 </html>
