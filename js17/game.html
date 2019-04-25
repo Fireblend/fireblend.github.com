@@ -1,48 +1,131 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8" />
 
 <style id="webmakerstyle">
-body {
-  background: black;
-  text-align: center;
-  color: white;
-}
-canvas {
-  border: 1px solid white;
-}
+    body {
+        background: url(bg.jpg) top center no-repeat;
+        background-color: #b27514;
+        text-align: center;
+        color: white;
+        font-family: Arial, Verdana, sans-serif;
+        padding: 0 25px;
+        margin: 0;
+    }
+    canvas {
+        border: none;
+
+    }
+    .arcade {
+        border: none;
+        padding: 254px 82px 322px 82px;
+        background: url(arcade.png) center no-repeat;
+    }
 a {
   color:#a4c2f4;
 }
+    .instructions {
+        max-width: 1000px;
+        margin: -3px auto;
+        padding: 25px;
+        background: #ffffff;
+        border-radius: 10px 10px 0 0;
+        box-shadow: rgba(0,0,0,0.12) 4px 0px;
+        color: rgb(0, 0, 0);
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        -webkit-flex;
+        display: flex;
+        text-align: justify;
+    }
+
+    .instructions h2 {
+        font-size: 18px;
+        font-weight:bold;
+
+    }
+    .instructions div {
+     display:block;
+    }
+    .logo{
+        width:100%;
+        height:auto;
+    }
+    .logo img{
+        display:block;
+        margin:25px auto;
+    }
+    .intro{
+        max-width:800px;
+        margin:0 auto;
+    }
+    .intro h2{
+        font-size:30px;
+        font-weight:bold;
+        color:#ffffff;
+        text-align:center;
+        margin:0;
+    }
+        .intro h3 {
+            font-size: 47px;
+            font-weight: bold;
+            color: #ffffff;
+            text-align: center;
+            margin:0 0 0px 0;
+        }
+    .intro p {
+        font-size: 16px;
+        font-weight: normal;
+        color: #ffffff;
+        text-align:center;
+        padding:0px;
+    }
 </style>
 </head>
 <body>
-<h2>Aah! Pickpocket!</h2>
-<h3>A 17kb game by <a href="https://www.fireblend.com">Fireblend</a></h3>
-<canvas width="500" height="500"></canvas>
-<div style="text-align: left">
-<h2> About</h2>
-This is a simple Javascript game developed using the <a href="https://straker.github.io/kontra/">Kontra micro-library</a>, intended to be under 17kb when zipped.
+<section class="top">
+    <div class="logo"><img src="logos.png" alt="Growth Acceleration Partners's 17KB JS GAME CHALLENGE"/></div>
+    <div class="intro">
+        <h2>GROWTH ACCELERATION PARTNERS’s 2019 </h2> <h3>17KB JS GAME CHALLENGE</h3>
+        <p>This game was created by Sergio Morales, the winner of 17KB JS Game Challenge. The challenge was an internal coding challenge only for Growth Acceleration Partners employees
+        <br>The participants created a game using JS and HTML5 with total file limited to 17kb. This game is a variation of the 13kb challenge. Why? Because 17Kb is the next prime number after 13 of course </br>
+        Enjoy!</p>
+    </div>
+</section>
+<h2 style="margin:0;">Aah! Pickpocket!</h2>
+<h3 style="margin:0;">A 17kb game by <a href="https://www.fireblend.com">Fireblend</a></h3>
+<div class="arcade"><canvas width="500" height="500"></canvas></div>
+<div class="instructions">
+    <section style="width:33.33%; padding: 0 10px;">
+        <h2> About</h2>
+        This is a simple Javascript game developed using the <a href="https://straker.github.io/kontra/">Kontra micro-library</a>, intended to be under 17kb when zipped.
 
-<br>The game is a tribute to asymmetric 2-player games, such as <a href="http://www.spyparty.com/">Spy Party</a>.
+        <br>The game is a tribute to asymmetric 2-player games, such as <a href="http://www.spyparty.com/">Spy Party</a>.
+    </section>
 
-<h2>Instructions</h2>
-1 player plays as the <b>thief</b> (keyboard) and another plays as the <b>sheriff</b> (mouse).<br><br>
+    <section style="width:66.66%; padding: 0 10px;">
+        <h2>Instructions</h2>
+        1 player plays as the <b>thief</b> (keyboard) and another plays as the <b>sheriff</b> (mouse).<br><br>
+        The <b>thief's goal is to pickpocket 3 villagers</b>. To pickpocket a villager, talk to them for 3 consecutive seconds (conversation happens automatically when close to a villager), and then press <i>space</i>, <i>Q</i> or <i>E</i>.
+        <br><b>Hint</b>: You can use the speech bubble animation to keep track of time: everytime it shows 3 dots, a second has elapsed!
+        <br>The screen will go dark after each successful robbery to allow the thief to escape the scene of the crime, but the location will be visible!
 
-The <b>thief's goal is to pickpocket 3 villagers</b>. To pickpocket a villager, talk to them for 3 consecutive seconds (conversation happens automatically when close to a villager), and then press <i>space</i>, <i>Q</i> or <i>E</i>.
-<br><b>Hint</b>: You can use the speech bubble animation to keep track of time: everytime it shows 3 dots, a second has elapsed!
-<br>The screen will go dark after each successful robbery to allow the thief to escape the scene of the crime, but the location will be visible!
+        <br><br>
+        The <b>sheriff's goal is to identify the thief, and shoot them before they can accomplish their goal!</b>
+    </section>
 
-<br><br>
-
-The <b>sheriff's goal is to identify the thief, and shoot them before they can accomplish their goal!</b>
-
+</div>
+    <div style="clear:both; height:1px;"></div>
 <script src="kontra.js"></script >
 <script>
 kontra.init();
 
+// Asset declaration
+//Images:
 let v1 = new Image();
 let v2 = new Image();
 let v3 = new Image();
@@ -65,8 +148,10 @@ ahh.src = 'ahh.png';
 let aim = new Image();
 aim.src = 'aim.png';
 
+// Sound:
 s1 = new Audio('s1.wav');
 
+// Global game variables:
 let villagersNum = 20;
 let villagers = [];
 let speechBubbles = [];
@@ -76,8 +161,9 @@ let gameOver =false;
 let deaths = 0;
 let starting = 0
 
+// This is a sprite to follow the thief around as the game starts, so
+// the thief player will know to recognize themselves at the beginning of the game.
 var thiefIndicator = kontra.sprite({
-
   x: 100,
   y: 80,
   color: '#ffffff',
@@ -105,12 +191,14 @@ var thiefIndicator = kontra.sprite({
   }
 })
 
+// This is the thief, controlled by one of the players.
+// Its sprite is randomized at the beginning of the game.
 var thief = kontra.sprite({
   id:villagersNum,
   x: 100,
   y: 80,
   color_list: [v1, v2, v3, v4],
-  color: '#bad455',//this.color_list[Math.floor(Math.random()*this.color_list.length)],
+  color: '#bad455',
   width: 20,
   height: 20,
   dead: false,
@@ -118,6 +206,7 @@ var thief = kontra.sprite({
   talking: 0,
   who: null,
 
+  // This function handles instantiation
   init: function(){
     this.image = this.color_list[Math.floor(Math.random()*this.color_list.length)];
     this.x = 250
@@ -125,6 +214,7 @@ var thief = kontra.sprite({
     this.running = false
   },
 
+  // Basic behavior:
   update(){
     if(gameOver && kontra.keys.pressed('x')){
       startGame()
@@ -137,6 +227,8 @@ var thief = kontra.sprite({
     else if((target.shot || deaths == 3) && !this.running && !this.dead){
       return
     }
+
+    // Handling movement
     else if(!this.running && !this.dead){
       if (this.x > kontra.canvas.width-this.width/2) {
         this.x = -this.width/2;
@@ -151,6 +243,7 @@ var thief = kontra.sprite({
         this.y = -this.width/2;
       }
 
+      // Keyboard input:
       if (!gameOver && (kontra.keys.pressed('up') || kontra.keys.pressed('w'))) {
         this.dy = -1;
       }
@@ -169,6 +262,8 @@ var thief = kontra.sprite({
         this.dx = 0;
       }
 
+      // Handling the "robbery" event, checks conditions for robbery and triggers
+      // the attack sequence if necessary.
       if (!gameOver && (kontra.keys.pressed('space') || kontra.keys.pressed('q'))){
           delta = (new Date()).getTime() - this.talking
           if(speechBubbles[this.id].active && delta > 3000 && this.who != null){
@@ -214,14 +309,18 @@ var thief = kontra.sprite({
   }
 });
 
+// This is the indicator that appears whenever an attack has occurred.
 var death_mark = kontra.sprite({
-  image: ahh,//this.color_list[Math.floor(Math.random()*this.color_list.length)],
+  image: ahh,
   width: 40,
   height: 20
 });
 
+// This is an invisible sprite that is used for click detection. For some reason,
+// attaching the click trigger to the sprite that holds the actual target image doesn't
+// trigger a shot, so this is a workaround by using an invisible secondary sprite that just follows it around.
 var target2 = kontra.sprite({
-  color: "#ffffff",//this.color_list[Math.floor(Math.random()*this.color_list.length)],
+  color: "#ffffff",
   width: 1,
   height: 1,
   shot: false,
@@ -250,6 +349,7 @@ var target2 = kontra.sprite({
   }
 });
 
+// This is the target sprite.
 var target = kontra.sprite({
   color: "#ffffff",//this.color_list[Math.floor(Math.random()*this.color_list.length)],
   image: aim,
@@ -265,15 +365,17 @@ var target = kontra.sprite({
   }
 });
 
+// Attaching the click event trigger to the target2 object
 kontra.pointer.track(target2);
 
+// This function generates a villager during game initialization
 function createVillager(vid) {
   let villager = kontra.sprite({
     id: vid,
     x: 100,
     y: 80,
     color_list: [v1, v2, v3, v4],
-    color: '#bad455',//this.color_list[Math.floor(Math.random()*this.color_list.length)],
+    color: '#bad455',
     width: 20,
     height: 20,
     dx: 1,
@@ -282,6 +384,7 @@ function createVillager(vid) {
     running: false,
     robbed: false,
 
+    // Instantiation
     init: function(){
       this.image = this.color_list[Math.floor(Math.random()*this.color_list.length)];
       this.x = Math.floor(Math.random()*500)
@@ -333,12 +436,17 @@ function createVillager(vid) {
       this.advance()
     },
 
+    // This function "re-rolls" the movement behavior for the villager, attempting to mimmick
+    // a human player playing with intention.
     rerollMove: function() {
         this.dx = this.moves[Math.floor(Math.random()*this.moves.length)];
         this.dy = this.moves[Math.floor(Math.random()*this.moves.length)];
         this.frames = 10+Math.floor(Math.random()*100);
     },
 
+    // This function checks whether a speech bubble should appear on top of the
+    // villager, signaling they're having a conversation with another villager
+    // or the robber.
     checkSpeech: function(villager){
       if(villager.id == this.id || this.dead){
         return false
@@ -381,6 +489,8 @@ function createVillager(vid) {
   villagers.push(villager);
 }
 
+// A function that handles the creation of
+// speechbubbles for the villagers.
 function createSpeechBubble(villager) {
   let speechBubble = kontra.sprite({
     x: 100,
@@ -426,11 +536,12 @@ function createSpeechBubble(villager) {
   speechBubbles.push(speechBubble);
 }
 
-
+// A utility function for writting text to the upper left corner of the screen
 function writeToScreen(text){
   writeToScreenFull(text, 20, 50, 25);
 }
 
+// The full utility function that can be used to write text to the screen.
 function writeToScreenFull(text, x, y, size){
   kontra.context.save()
   kontra.context.strokeStyle = "#ffffff"
@@ -441,6 +552,7 @@ function writeToScreenFull(text, x, y, size){
   kontra.context.restore()
 }
 
+//The game-start function. Resets variables.
 startGame()
 gameOver = true
 function startGame(){
@@ -461,14 +573,15 @@ function startGame(){
 
 }
 
+// Utility function to fill the screen with a given color.
 function fillScreen(color){
-
   kontra.context.beginPath();
   kontra.context.rect(0, 0, 500, 500);
   kontra.context.fillStyle = color;
   kontra.context.fill();
 }
 
+// Main game loop.
 var loop = kontra.gameLoop({  // create the main game loop
   update() {        // update the game state
     thief.update();
@@ -485,7 +598,7 @@ var loop = kontra.gameLoop({  // create the main game loop
     })
   },
   render() {        // render the game state
-    fillScreen("#12d141")
+      fillScreen("#98c0d9")
     if(blackFrames <= 0){
       villagers.map(villager => {
         if(!villager.dead){
