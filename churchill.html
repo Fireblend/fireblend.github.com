@@ -9129,15 +9129,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box 
+/* This file is a compatability layer.  It allows the usage of flexible box
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this 
+`Modern browsers` comments below).  Browsers that are known to implement this
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+ 
+    Internet Explorer 11+
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -12519,7 +12519,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for 
+  /* This injects handle bars (a short, wide = symbol) for
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -13018,7 +13018,7 @@ ul.typeahead-list  > li > a.pull-right {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-    
+
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -13072,14 +13072,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
   }
-  div.output { 
+  div.output_wrapper {
     display: block;
-    page-break-inside: avoid; 
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
   }
 }
 </style>
@@ -13116,7 +13116,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Churchill-vs.-Granizado:-An&#225;lisis-de-Encuesta-GAP">Churchill vs. Granizado: An&#225;lisis de Encuesta GAP<a class="anchor-link" href="#Churchill-vs.-Granizado:-An&#225;lisis-de-Encuesta-GAP">&#182;</a></h1><p>En GAP nos hacemos preguntas importantes, como ¿cuál es la verdadera diferencia entre un churchill y granizado? ¿es lo suficientemente distinto el segundo del primero, o son esencialmente lo mismo? <a href="https://es.wikipedia.org/wiki/Churchill_(postre">La documentación existente es insuficiente</a>), con conflictos en la lista de ingredientes, la diferencia con el concepto de granizado, y pocas fuentes de información. Es por esto que nos dimos a la tarea de realizar una encuesta interna con la cual pudiéramos realizar un análisis objetivo y cuantitativo de la percepción pública de estos postres.</p>
+<h1 id="Churchill-vs.-Granizado:-An&#225;lisis-de-Encuesta-GAP">Churchill vs. Granizado: An&#225;lisis de Encuesta GAP<a class="anchor-link" href="#Churchill-vs.-Granizado:-An&#225;lisis-de-Encuesta-GAP">&#182;</a></h1><p>En GAP nos hacemos preguntas importantes, como ¿cuál es la verdadera diferencia entre un churchill y granizado? ¿es lo suficientemente distinto el segundo del primero, o son esencialmente lo mismo? <a href="https://es.wikipedia.org/wiki/Churchill_(postre)">La documentación existente es insuficiente</a>, con conflictos en la lista de ingredientes, la diferencia con el concepto de granizado, y pocas fuentes de información. Es por esto que nos dimos a la tarea de realizar una encuesta interna con la cual pudiéramos realizar un análisis objetivo y cuantitativo de la percepción pública de estos postres.</p>
 <p>Este documento representa el análisis de los resultados de dicha encuesta.</p>
 
 </div>
@@ -14805,12 +14805,12 @@ memory usage: 6.6 KB
 
 <span class="c1"># Instanciación del modelo</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
-                                    <span class="n">criterion</span> <span class="o">=</span> <span class="s1">&#39;entropy&#39;</span><span class="p">,</span> 
+                                    <span class="n">criterion</span> <span class="o">=</span> <span class="s1">&#39;entropy&#39;</span><span class="p">,</span>
                                     <span class="n">class_weight</span> <span class="o">=</span> <span class="s1">&#39;balanced&#39;</span><span class="p">,</span>
                                     <span class="n">random_state</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># Entrenamiento</span>
-<span class="n">t</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span> 
+<span class="n">t</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14909,10 +14909,10 @@ memory usage: 6.6 KB
 <span class="kn">import</span> <span class="nn">pydotplus</span>
 
 <span class="c1"># Generamos la visualización, exportada a un archivo .dot</span>
-<span class="n">dot_data</span> <span class="o">=</span> <span class="n">export_graphviz</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">out_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  
-                         <span class="n">feature_names</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>  
-                         <span class="n">class_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;granizado&quot;</span><span class="p">,</span> <span class="s2">&quot;churchill&quot;</span><span class="p">],</span>  
-                         <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rounded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  
+<span class="n">dot_data</span> <span class="o">=</span> <span class="n">export_graphviz</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">out_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                         <span class="n">feature_names</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+                         <span class="n">class_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;granizado&quot;</span><span class="p">,</span> <span class="s2">&quot;churchill&quot;</span><span class="p">],</span>
+                         <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rounded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                          <span class="n">special_characters</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Generamos la imagen a partir del archivo .dot</span>
@@ -15221,7 +15221,7 @@ memory usage: 6.6 KB
   </div>
 </body>
 
- 
+
 
 
 </html>
