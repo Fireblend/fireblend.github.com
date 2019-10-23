@@ -1,7 +1,8 @@
 ---
 layout: post
-title: Skillcrush: Machine Learning Interview Qs Explained (with quotes by yours truly)
+title: Skillcrush Machine Learning Interview Qs Explained (with quotes by yours truly)
 ---
+
 {{page.title}}
 ================
 
