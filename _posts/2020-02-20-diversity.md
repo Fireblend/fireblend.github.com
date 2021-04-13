@@ -1,7 +1,8 @@
 ---
 layout: post
-title: Future-proof your Analytics Efforts in 2020: Hire Diverse Teams
+title: Future-proof your Analytics Efforts in 2020, Hire Diverse Teams
 ---
+
 {{page.title}}
 ================
 
