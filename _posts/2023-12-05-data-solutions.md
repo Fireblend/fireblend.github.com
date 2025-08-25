@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Data Solutions for Growth: A Deep Dive into GAP’s Expertise in AI, Data & More
+title: "Data Solutions for Growth: A Deep Dive into GAP’s Expertise in AI, Data & More"
 ---
 {{page.title}}
 ================

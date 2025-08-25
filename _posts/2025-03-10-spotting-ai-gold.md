@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [Video] Spotting AI Gold Turning Curiosity into Client Solutions
+title: "[Video] Spotting AI Gold Turning Curiosity into Client Solutions"
 ---
 {{page.title}}
 ================

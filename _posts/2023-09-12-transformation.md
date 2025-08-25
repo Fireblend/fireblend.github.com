@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Digital Transformation: One Size Does Not Fit All
+title: "Digital Transformation: One Size Does Not Fit All"
 ---
 {{page.title}}
 ================
