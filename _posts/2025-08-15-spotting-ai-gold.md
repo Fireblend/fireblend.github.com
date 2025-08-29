@@ -7,7 +7,7 @@ title: "Spotting AI Gold: Turning Curiosity into Client Solutions"
 
 (**Note:** This is a blog/written version of my previously shared webinar Spotting AI Gold: Turning Curiosity into Client Solutions. It's not a transcript, but if you'd rather watch the webinar, click [here](https://www.youtube.com/watch?v=ZWxTWrtGlk0))
 
-<img src=https://miro.medium.com/v2/resize:fit:720/format:webp/1*h3YJgeb7OMp-YitPdSsMmQ.png>
+<center><img src="https://i.imgur.com/tmkP1uA.png" width="600px"/></center>
 
 Artificial intelligence is everywhere, yet for many organizations, the question isn’t if they should use AI — as the technology is now more accessible than ever and the willingness to do so at an all-time high — the real challenge is how to make it work in ways that are strategic and sustainable, embedding it into core operations to solve their most pressing challenges.
 
